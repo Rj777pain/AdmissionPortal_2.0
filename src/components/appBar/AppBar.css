@@ -1,0 +1,18 @@
+.appBar{
+    position: relative;
+    
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    background-color: rgb(14, 93, 114);
+
+}
+.appBarTitle{
+    position: relative;
+    /* left: 60px; */
+    color: white;
+    font-size: 30px;
+    font-weight: bold;  
+    text-align: center;
+}
