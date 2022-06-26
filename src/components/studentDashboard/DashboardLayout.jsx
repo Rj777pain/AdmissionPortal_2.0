@@ -31,7 +31,7 @@ export default function DashboardLayout(props) {
                     md={2}
                     
                 >
-                    <DashboardSidebar/>
+                    <DashboardSidebar />
                 </Grid>
                 <Grid item md={10} component={Paper} elevation={5} sx={{backgroundColor:'#e6e6e6'}} square>
                     {props.children}

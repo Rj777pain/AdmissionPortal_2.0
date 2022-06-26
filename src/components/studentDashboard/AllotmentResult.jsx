@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from "@material-ui/core/styles"
+import { Box, Button, MenuItem, TextField } from '@mui/material';
 
 function createData(schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails) {
   return {schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails};
@@ -27,7 +29,19 @@ const useStyles = makeStyles((theme) => ({
   tableContainer:{
     borderRadius: 10,
     margin: '10px 10px',
-    maxWidth: 1300
+    width:'900px'
+  },
+  textField: {
+    width: "500px",
+    height: "50px"
+  },
+  textField2: {
+    width: "100px",
+
+  },
+  button: {
+    height: '38px',
+    textTransform: 'none'
   },
   tableHeaderCell: {
     fontWeight: 'bold',
@@ -36,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const districts = ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"];
 
 function AllotmentResult() {
 
@@ -48,18 +63,66 @@ function AllotmentResult() {
 ];
 */
   const classes = useStyles();
+  const [district, setDistrict] = useState();
+  const [table, setTable] = useState(false)
+  const handleOnClick = () => {
+    setTable(true)
+  }
+  const handleOnSelect = (e) => {
+    setTable(false)
+    setDistrict(e.target.value)
+  }
   return (
-    <div>
-    <TableContainer component={Paper} className={classes.tableContainer}>
+    <Box sx={{display:'flex',alignItems:'center',flexDirection:'column'}}>
+      <Box sx={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: '600', marginTop: '30px', marginBottom: '20px' }}>Candidate Details</Box>
+
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' }}>
+        <TextField
+          margin="normal"
+          required
+          select
+          size='small'
+          className={classes.textField}
+          name="Name"
+          value={district}
+          onChange={handleOnSelect}
+          label="Select District"
+          sx={{
+            "& label": {
+              color: 'black'
+            }
+          }}
+
+          id="newPassword"
+
+        >
+          {
+            districts.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))
+          }
+        </TextField>
+        <Button
+
+          onClick={handleOnClick}
+          variant="contained"
+          className={classes.button}
+        >
+          Show
+        </Button>
+      </Box>
+    {table &&<TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell className={classes.tableHeaderCell} >School Name</TableCell>
             <TableCell className={classes.tableHeaderCell} align="right">Course Name</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="right">Last Rank&nbsp;(g)</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="right">Current Rank&nbsp;(g)</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="right">WGPA&nbsp;(g)</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="right">WGPA Details&nbsp;(g)</TableCell>
+            <TableCell className={classes.tableHeaderCell} align="right">Last Rank</TableCell>
+            <TableCell className={classes.tableHeaderCell} align="right">Current Rank</TableCell>
+            <TableCell className={classes.tableHeaderCell} align="right">WGPA</TableCell>
+            <TableCell className={classes.tableHeaderCell} align="right">WGPA Details</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -80,8 +143,8 @@ function AllotmentResult() {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
-    </div>
+    </TableContainer>}
+    </Box>
         
   )
 }
