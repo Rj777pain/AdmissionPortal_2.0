@@ -49,7 +49,7 @@ function HomeLeft() {
                 <Box className={classes.block_heading} sx={{ display: 'flex', alignItems: 'center' }}><NotificationsActiveIcon sx={{ mr: 0.5 }} />Notifications</Box>
                 <Divider sx={{ my: 1 }} />
                 <List sx={{ maxHeight: '80%', overflow: 'auto', pt: 1, pl: 1 }}>
-                    {items.map(item => <li sx={{pv:2}}>{item}</li>)}
+                    {items.map((item,index) => <li key={index} sx={{pv:2}}>{item}</li>)}
                 </List>
             </Box>
 

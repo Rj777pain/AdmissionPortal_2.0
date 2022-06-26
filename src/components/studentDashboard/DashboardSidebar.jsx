@@ -10,7 +10,7 @@ function DashboardSidebar() {
   
   return (
     <Paper  sx={{backgroundColor:'white',display: 'flex',
-    flexDirection: 'column',height: '100vh',paddingX:'10px', elevation:'10'}}>
+    flexDirection: 'column',height: '100vh',paddingX:'10px', }}>
       
     <Box sx={{height:'30px'}}/>
     

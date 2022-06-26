@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px",
     paddingBottom: "20px",
     maxHeight:"100vh",
+    width:"100vh",
     flexDirection: "column",
     alignItems: "center",
     verticalAlign: "center",
@@ -30,7 +31,9 @@ const useStyles = makeStyles((theme) => ({
 
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    display:'flex',
+    flexDirection:'column',
+    alignContent:'center'
   },
   submit: {
     height: 40,
@@ -44,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 function RegistrationForm(props) {
   const handleSubmit = () => {
+    console.log(sslcScheme,registerNumber,yearPass,monthPass,mobileNumber,modeOfApplication);
     props.callback();
   };
   const classes = useStyles();
@@ -61,7 +65,7 @@ function RegistrationForm(props) {
     "November",
     "December",
   ];
-  const [startDate, setStartDate] = useState();//new Date());
+  const [dob, setDob] = useState();//new Date());
   const [sslcScheme, setSslcScheme] = useState("SSLC (2021-2022)");
   const [registerNumber, setRegisterNumber] = useState("");
   const [yearPass, setyearPass] = useState("");
@@ -75,7 +79,7 @@ function RegistrationForm(props) {
         <Typography component="h1"  sx={{textAlign:'center',fontSize:30, fontWeight:700,color:'#112c57'}}>
           Candidate Registration
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <Box component="form" className={classes.form} noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
         
           <TextField
             margin="normal"
@@ -94,68 +98,91 @@ function RegistrationForm(props) {
             <MenuItem value={"SSLC (2021-2022)"}>SSLC (2021-2022)</MenuItem>
             <MenuItem value={"SSLC (2020-2021)"}>SSLC (2020-2021)</MenuItem>
             <MenuItem value={"SSLC (2019-2020)"}>SSLC (2019-2020)</MenuItem>
-            </TextField><br/>
+            </TextField>
             
+          
           <TextField
             margin="normal"
             required
             className={classes.textField}
-            name="password"
-            label="SSLC Scheme"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          /><br/>
-          <TextField
-            margin="normal"
-            required
-            className={classes.textField}
-            id="email"
+            id="registerNumber"
             label="Register Number"
-            name="email"
-            autoComplete="email"
+            name="registerNumber"
+            autoComplete="Register Number"
+            value={registerNumber}
+            onChange={(e) => setRegisterNumber(e.target.value)}
             autoFocus
-          /><br/>
+          />
           <TextField
             margin="normal"
             required
             className={classes.textField}
-            name="password"
+            name="mobileNumber"
             label="Mobile Number"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          /><br/>
+            value={mobileNumber}
+            onChange={(e) => setMobileNumber(e.target.value)}
+            id="mobileNumber"
+            autoComplete="Mobile Number"
+          />
           <TextField
             margin="normal"
             required
             className={classes.textField}
-            id="email"
+            id="dateOFBirth"
             label="Date of birth"
-            name="email"
-            autoComplete="email"
+            name="dateOfBirth"
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
+            autoComplete="Date of Birth"
             autoFocus
-          /><br/>
+          />
           <TextField
             margin="normal"
             required
             className={classes.textField}
-            name="password"
+            name="yearOfPass"
             label="Year of pass"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          /><br/>
+            value={yearPass}
+            onChange={(e) => setyearPass(e.target.value)}
+            id="yearOfPass"
+            autoComplete="Select Year of pass"
+          />
           <TextField
             margin="normal"
+            select
             required
             className={classes.textField}
-            id="email"
-            label="Mode of Application"
-            name="email"
-            autoComplete="email"
+            id="monthPass"
+            label="Month of Pass"
+            name="monthPass"
+            autoComplete="Select Month"
+            value={monthPass}
+            onChange={(e) => setmonthPass(e.target.value)}
             autoFocus
-          /><br/>
+          >
+            {month.map((option) => (
+            <MenuItem key={option} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+          </TextField>
+          <TextField
+            margin="normal"
+            select
+            required
+            className={classes.textField}
+            id="modeOfApplication"
+            label="Mode of Application"
+            name="modeOfApplication"
+            autoComplete="Select Mode of Application"
+            value={modeOfApplication}
+            onChange={(e) => setmodeofApplication(e.target.value)}
+            autoFocus
+          >
+            <MenuItem value={'online'}>Online</MenuItem>
+            <MenuItem value={'offline'}>Offline</MenuItem>
+          </TextField>
+          
         
           <Box sx={{textAlign:'right',pr:2,mt:2}}>
           <Button
