@@ -13,11 +13,11 @@ function createData(schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails) {
 }
 
 const rows = [
-  createData("padma school","CS",121,100,7.44,"A+"),
-  createData("padma school","CS",121,100,7.44,"A+"),
-  createData("padma school","CS",121,100,7.44,"A+"),
-  createData("padma school","CS",121,100,7.44,"A+"),
-  createData("padma school","CS",121,100,7.44,"A+"),
+  createData("Padma school","CS",121,100,7.44,"A+"),
+  createData("Rajeev Gandhi School","CS",121,100,7.44,"A+"),
+  createData("Vijaya raja Shool","CS",121,100,7.44,"A+"),
+  createData("Don Campus","CS",121,100,7.44,"A+"),
+  createData("Padma school","CS",121,100,7.44,"A+"),
 ]
 
 const useStyles = makeStyles((theme) => ({
