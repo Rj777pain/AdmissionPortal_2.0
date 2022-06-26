@@ -74,7 +74,7 @@ function AllotmentResult() {
   }
   return (
     <Box sx={{display:'flex',alignItems:'center',flexDirection:'column'}}>
-      <Box sx={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: '600', marginTop: '30px', marginBottom: '20px' }}>Candidate Details</Box>
+      <Box sx={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: '600', marginTop: '30px', marginBottom: '20px' }}>Allotment Result</Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' }}>
         <TextField
