@@ -1,14 +1,19 @@
 import { useState } from 'react'
 
+
 import './App.css'
 import HomeScreen from './components/homeScreen/HomeScreen'
+import  DashboardLayout  from './components/studentDashboard/DashboardLayout'
+import Switching from './Switching'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <div className="App">
-      <HomeScreen/>
+      {/* <HomeScreen/> */}
+      {/* <DashboardLayout></DashboardLayout> */}
+      <Switching/>
     </div>
   )
 }

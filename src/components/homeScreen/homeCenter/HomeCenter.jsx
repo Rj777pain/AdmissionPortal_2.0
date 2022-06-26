@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -15,13 +15,16 @@ import { useState } from 'react';
 import theme from '../../theme';
 import Dialog from "@material-ui/core/Dialog";
 import RegistrationDialogueBox from '../registrationDialogueBox.jsx/RegistrationDialogueBox';
+import { Link as Rlink, useNavigate } from 'react-router-dom';
+import { Link } from '@mui/material';
 
-import RegistrationSuccess from '../registrationDialogueBox.jsx/RegistrationSuccess';
+
 
 
 
 
 export default function HomeCenter() {
+    const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -29,6 +32,7 @@ export default function HomeCenter() {
             email: data.get('email'),
             password: data.get('password'),
         });
+        navigate('/profile')
     };
     
     const [open, setOpen] = useState(false);
@@ -105,7 +109,7 @@ export default function HomeCenter() {
                             </Button>
                             <Grid container paddingX={3}>
                                 <Grid item xs>
-                                    <Link href="#" variant="body2" fontSize={15}>
+                                    <Link to="/admin/school" variant="body2" fontSize={15}>
                                         Forgot password?
                                     </Link>
                                 </Grid>

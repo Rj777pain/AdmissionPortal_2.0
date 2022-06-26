@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:20,
     padding: "10px",
     paddingBottom: "20px",
-    height:"80vh",
+    maxHeight:"100vh",
     flexDirection: "column",
     alignItems: "center",
     verticalAlign: "center",
@@ -77,8 +77,9 @@ function RegistrationForm(props) {
         </Typography>
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
         
-          {/* <Select
+          <TextField
             margin="normal"
+            select
             required
             className={classes.textField}
             id="ssslcScheme"
@@ -93,7 +94,8 @@ function RegistrationForm(props) {
             <MenuItem value={"SSLC (2021-2022)"}>SSLC (2021-2022)</MenuItem>
             <MenuItem value={"SSLC (2020-2021)"}>SSLC (2020-2021)</MenuItem>
             <MenuItem value={"SSLC (2019-2020)"}>SSLC (2019-2020)</MenuItem>
-            </Select><br/> */}
+            </TextField><br/>
+            
           <TextField
             margin="normal"
             required
