@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from "@material-ui/core/styles"
-import { Box } from '@mui/material';
+import { Box, Button, MenuItem, TextField } from '@mui/material';
 
 function createData(schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails) {
   return {schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails};
@@ -30,6 +31,18 @@ const useStyles = makeStyles((theme) => ({
     margin: '10px 10px',
     width:'900px'
   },
+  textField: {
+    width: "500px",
+    height: "50px"
+  },
+  textField2: {
+    width: "100px",
+
+  },
+  button: {
+    height: '38px',
+    textTransform: 'none'
+  },
   tableHeaderCell: {
     fontWeight: 'bold',
     backgroundColor: theme.palette.primary.dark,
@@ -37,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const districts = ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"];
 
 function AllotmentResult() {
 
@@ -49,9 +63,57 @@ function AllotmentResult() {
 ];
 */
   const classes = useStyles();
+  const [district, setDistrict] = useState();
+  const [table, setTable] = useState(false)
+  const handleOnClick = () => {
+    setTable(true)
+  }
+  const handleOnSelect = (e) => {
+    setTable(false)
+    setDistrict(e.target.value)
+  }
   return (
     <Box sx={{display:'flex',alignItems:'center',flexDirection:'column'}}>
-    <TableContainer component={Paper} className={classes.tableContainer}>
+      <Box sx={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: '600', marginTop: '30px', marginBottom: '20px' }}>Candidate Details</Box>
+
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' }}>
+        <TextField
+          margin="normal"
+          required
+          select
+          size='small'
+          className={classes.textField}
+          name="Name"
+          value={district}
+          onChange={handleOnSelect}
+          label="Select District"
+          sx={{
+            "& label": {
+              color: 'black'
+            }
+          }}
+
+          id="newPassword"
+
+        >
+          {
+            districts.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))
+          }
+        </TextField>
+        <Button
+
+          onClick={handleOnClick}
+          variant="contained"
+          className={classes.button}
+        >
+          Show
+        </Button>
+      </Box>
+    {table &&<TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -81,7 +143,7 @@ function AllotmentResult() {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </TableContainer>}
     </Box>
         
   )
