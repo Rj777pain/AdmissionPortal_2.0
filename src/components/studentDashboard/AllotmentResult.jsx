@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from "@material-ui/core/styles"
+import { Box } from '@mui/material';
 
 function createData(schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails) {
   return {schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails};
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   tableContainer:{
     borderRadius: 10,
     margin: '10px 10px',
-    maxWidth: 1300
+    width:'900px'
   },
   tableHeaderCell: {
     fontWeight: 'bold',
@@ -49,17 +50,17 @@ function AllotmentResult() {
 */
   const classes = useStyles();
   return (
-    <div>
+    <Box sx={{display:'flex',alignItems:'center',flexDirection:'column'}}>
     <TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell className={classes.tableHeaderCell} >School Name</TableCell>
             <TableCell className={classes.tableHeaderCell} align="right">Course Name</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="right">Last Rank&nbsp;(g)</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="right">Current Rank&nbsp;(g)</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="right">WGPA&nbsp;(g)</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="right">WGPA Details&nbsp;(g)</TableCell>
+            <TableCell className={classes.tableHeaderCell} align="right">Last Rank</TableCell>
+            <TableCell className={classes.tableHeaderCell} align="right">Current Rank</TableCell>
+            <TableCell className={classes.tableHeaderCell} align="right">WGPA</TableCell>
+            <TableCell className={classes.tableHeaderCell} align="right">WGPA Details</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -81,7 +82,7 @@ function AllotmentResult() {
         </TableBody>
       </Table>
     </TableContainer>
-    </div>
+    </Box>
         
   )
 }
