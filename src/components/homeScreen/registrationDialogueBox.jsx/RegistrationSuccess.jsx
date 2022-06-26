@@ -41,6 +41,7 @@ function RegistrationSuccess(props) {
   const handleCallback = () => {
     props.callback();
   };
+  const [otp, setOTP] = useState();
   return (
     <Box component="form" className={classes.paper} noValidate onSubmit={handleCallback} sx={{ mt: 0.2 }}>
 

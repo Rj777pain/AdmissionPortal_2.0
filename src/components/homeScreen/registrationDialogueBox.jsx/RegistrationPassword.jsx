@@ -43,14 +43,14 @@ function RegistrationPassword(props) {
     props.callback();
   };
   const classes = useStyles();
+
+  const [password, setPassword] = useState();
+  const handleOnFromSubmit = () => {
+    setPassword(true);
+  };
+
   return (
-
-  
-
-      
-
-
-      <Box component="form" className={classes.paper} noValidate onSubmit={handleCallback} sx={{ mt: 0.2 }}>
+    <Box component="form" className={classes.paper} noValidate onSubmit={handleCallback} sx={{ mt: 0.2 }}>
 
       <Typography component="h1" sx={{ textAlign: 'center', fontSize: 30, fontWeight: 700, color: '#112c57' }}>
         Password Verification
