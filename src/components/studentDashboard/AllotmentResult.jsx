@@ -20,7 +20,7 @@ const rows = [
   createData("Sardar school","Biology Science",121,100,7.44,"A+"),
   createData("Don school","Computer Science",121,100,7.44,"A+"),
   createData("Peramora school","Commerce  ",121,100,7.44,"A+"),
-]   ``
+] 
 
 const useStyles = makeStyles((theme) => ({
   table:{
