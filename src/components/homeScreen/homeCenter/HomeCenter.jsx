@@ -27,19 +27,19 @@ export default function HomeCenter() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const handleSubmit = (event) => {
-         Axios.post("http://localhost:3001/login", {
-           email: email,
-           password: password,
-         }).then((response) => {
-           console.log(response);
-         });
-        // event.preventDefault();
-        // const data = new FormData(event.currentTarget);
-        // console.log({
-        //     email: data.get('email'),
-        //     password: data.get('password'),
-        // });
-        // navigate('/profile')
+        //  Axios.post("http://localhost:3001/login", {
+        //    email: email,
+        //    password: password,
+        //  }).then((response) => {
+        //    console.log(response);
+        //  });
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        console.log({
+            email: data.get('email'),
+            password: data.get('password'),
+        });
+        navigate('/profile')
     };
     
     const [open, setOpen] = useState(false);
