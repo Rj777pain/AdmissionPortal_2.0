@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  load-balancer:
+    build: .
+    command: sh -c "python3 -m flask run --host=0.0.0.0"
+    ports:
+      - 8000:5000
+    working_dir: /app
+    volumes:
+      - type: bind 
+        source: ./Data
+        target: /app/Data
+      - type: bind 
+        source: ./Model
+        target: /app/Model
+      - type: bind
+        source: ./DataObjects
+        target: /app/DataObjects
+
