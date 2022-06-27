@@ -16,10 +16,10 @@ function createData(schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails) {
 
 const rows = [
   createData("padma school","CS",121,100,7.44,"A+"),
-  createData("padma school","CS",121,100,7.44,"A+"),
-  createData("padma school","CS",121,100,7.44,"A+"),
-  createData("padma school","CS",121,100,7.44,"A+"),
-  createData("padma school","CS",121,100,7.44,"A+"),
+  createData("Rajeev school","CS",121,100,7.44,"A+"),
+  createData("Sardar school","CS",121,100,7.44,"A+"),
+  createData("Don school","CS",121,100,7.44,"A+"),
+  createData("Peramora school","CS",121,100,7.44,"A+"),
 ]
 
 const useStyles = makeStyles((theme) => ({

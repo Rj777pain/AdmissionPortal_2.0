@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import Axios from "axios";
 
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -21,18 +22,24 @@ import { Link } from '@mui/material';
 
 
 
-
-
 export default function HomeCenter() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-        navigate('/profile')
+         Axios.post("http://localhost:3001/login", {
+           email: email,
+           password: password,
+         }).then((response) => {
+           console.log(response);
+         });
+        // event.preventDefault();
+        // const data = new FormData(event.currentTarget);
+        // console.log({
+        //     email: data.get('email'),
+        //     password: data.get('password'),
+        // });
+        // navigate('/profile')
     };
     
     const [open, setOpen] = useState(false);
