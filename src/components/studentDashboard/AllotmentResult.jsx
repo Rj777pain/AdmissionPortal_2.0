@@ -15,12 +15,12 @@ function createData(schoolName,courseName,lastRank,currRank,wgpa,wgpaDetails) {
 }
 
 const rows = [
-  createData("padma school","CS",121,100,7.44,"A+"),
-  createData("Rajeev school","CS",121,100,7.44,"A+"),
-  createData("Sardar school","CS",121,100,7.44,"A+"),
-  createData("Don school","CS",121,100,7.44,"A+"),
-  createData("Peramora school","CS",121,100,7.44,"A+"),
-]
+  createData("padma school","Computer Science",121,100,7.44,"A+"),
+  createData("Rajeev school","Commerce",121,100,7.44,"A+"),
+  createData("Sardar school","Biology Science",121,100,7.44,"A+"),
+  createData("Don school","Computer Science",121,100,7.44,"A+"),
+  createData("Peramora school","Commerce  ",121,100,7.44,"A+"),
+]   ``
 
 const useStyles = makeStyles((theme) => ({
   table:{
@@ -56,10 +56,10 @@ function AllotmentResult() {
 
 /*
   var allotmentList = [
-    {schoolName:"padma school",courseName:"CS",lastRank:121,currRank:100,wgpa:7.44,wgpaDetails:"A+"},
-    {schoolName:"Rajeev Gandhi School",courseName:"CS",lastRank:121,currRank:100,wgpa:7.44,wgpaDetails:"A+"},
-    {schoolName:"Vijaya raja Shool",courseName:"CS",lastRank:121,currRank:100,wgpa:7.44,wgpaDetails:"A+"},
-    {schoolName:"Don Campus",courseName:"CS",lastRank:121,currRank:100,wgpa:7.44,wgpaDetails:"A+"},
+    {schoolName:"padma school",courseName:"Computer Science",lastRank:121,currRank:100,wgpa:7.44,wgpaDetails:"A+"},
+    {schoolName:"Rajeev Gandhi School",courseName:"Biology Science",lastRank:121,currRank:100,wgpa:7.44,wgpaDetails:"A+"},
+    {schoolName:"Vijaya raja Shool",courseName:"Computer Science",lastRank:121,currRank:100,wgpa:7.44,wgpaDetails:"A+"},
+    {schoolName:"Don Campus",courseName:"Commerce",lastRank:121,currRank:100,wgpa:7.44,wgpaDetails:"A+"},
 ];
 */
   const classes = useStyles();

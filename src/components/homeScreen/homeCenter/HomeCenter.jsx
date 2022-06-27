@@ -27,19 +27,19 @@ export default function HomeCenter() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const handleSubmit = (event) => {
-         Axios.post("http://localhost:3001/login", {
-           email: email,
-           password: password,
-         }).then((response) => {
-           console.log(response);
-         });
-        // event.preventDefault();
-        // const data = new FormData(event.currentTarget);
-        // console.log({
-        //     email: data.get('email'),
-        //     password: data.get('password'),
-        // });
-        // navigate('/profile')
+        //  Axios.post("http://localhost:3001/login", {
+        //    email: email,
+        //    password: password,
+        //  }).then((response) => {
+        //    console.log(response);
+        //  });
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        console.log({
+            email: data.get('email'),
+            password: data.get('password'),
+        });
+        navigate('/profile')
     };
     
     const [open, setOpen] = useState(false);
@@ -88,6 +88,8 @@ export default function HomeCenter() {
                                 fullWidth
                                 id="email"
                                 label="Email Address"
+                                value={email}
+                                onChange={(e)=>setEmail(e)}
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
@@ -100,6 +102,8 @@ export default function HomeCenter() {
                                 label="Password"
                                 type="password"
                                 id="password"
+                                value={password}
+                                onChange={(e)=>setPassword(e)}
                                 autoComplete="current-password"
                             />
                             <FormControlLabel
