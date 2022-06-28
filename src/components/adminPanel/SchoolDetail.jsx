@@ -40,7 +40,7 @@ function SchoolDetail() {
     <Box sx={{ display: 'flex', alignItems: 'center',justifyContent:'start', flexDirection: 'column' }}>
       <Box sx={{ textAlign: 'center', fontSize: '1.5rem', fontWeight: '600', marginTop: '30px', marginBottom: '20px' }}>School Details</Box>
 
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row',width:'500px' }}>
+      {/* <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row',width:'500px' }}>
 
       <TextField
           margin="normal"
@@ -110,9 +110,9 @@ function SchoolDetail() {
         >
           Submit
         </Button>
-        </Box>
-          {table && <Box className={classes.text}>{school} {districts[district]}</Box>}
-        {table && <TableContainer component={Paper} sx={{ width: '800px' }}>
+        </Box> */}
+          <Box className={classes.text}>{school} {districts[district]}</Box>
+        <TableContainer component={Paper} sx={{ width: '800px' }}>
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
@@ -138,7 +138,7 @@ function SchoolDetail() {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>}
+      </TableContainer>
     </Box>
   )
 }

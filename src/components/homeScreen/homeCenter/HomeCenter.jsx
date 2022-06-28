@@ -26,7 +26,9 @@ export default function HomeCenter() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const [admin, setAdmin] = useState(false)
     const handleSubmit = (event) => {
+        
         //  Axios.post("http://localhost:3001/login", {
         //    email: email,
         //    password: password,
@@ -39,7 +41,7 @@ export default function HomeCenter() {
             email: data.get('email'),
             password: data.get('password'),
         });
-        navigate('/profile')
+        admin?navigate('/admin/school'):navigate('/profile')
     };
     
     const [open, setOpen] = useState(false);
@@ -47,7 +49,9 @@ export default function HomeCenter() {
     const handleClickToOpen = () => {
         setOpen(true);
     };
-    
+    const handleonClickAdmin = () => {
+        setAdmin(!admin);
+    };
     const handleToClose = () => {
         console.log("closing");
         setOpen(false);
@@ -79,7 +83,7 @@ export default function HomeCenter() {
                     >
 
                         <Typography component="h1" variant="h5">
-                            Sign in
+                            {admin?'Admin Login':'Candidate Login'}
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             <TextField
@@ -117,6 +121,15 @@ export default function HomeCenter() {
                                 sx={{ mt: 3, mb: 2 }}
                             >
                                 Sign In
+                            </Button>
+                            <Button
+                                
+                                fullWidth
+                                variant="contained"
+                                onClick={handleonClickAdmin}
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                                Switch to { admin?'Candidate':'Admin'}
                             </Button>
                             <Grid container paddingX={3}>
                                 <Grid item xs>
